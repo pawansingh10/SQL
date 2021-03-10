@@ -6,6 +6,21 @@ Understanding of SQL
 ***
 
 ### **SQL Query to find the Nth highest Salary**
+- **EMP**
+- |Id|Salary|
+  |----|------|
+  |1  | 10000|
+  |2  | 20000|
+  |3  | 20000|
+  |4  | 30000|
+  |5  | 40000|
+  |6  | 50000|
+
+- Find Highest Salary from table EMP
+  
+- ```sql
+     SELECT MAX(Salary) FROM EMP;  // 50000
+   ```
 
 ### **SQL Query to delete duplicate rows from a Table**
 
