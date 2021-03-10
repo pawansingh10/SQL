@@ -64,6 +64,52 @@ Understanding of SQL
 
 ### **SQL Query to delete duplicate rows from a Table**
 
+- |Id |First_Name|Last_name|
+  |---|----------|---------|
+  |1  |Amit      | Kumar   |
+  |2  |Rahul     | Jain    |
+  |3  |Akhil     | Karn   |
+  |4  |Rahul     | Jain   |
+  |5  |Maaz      | Ahmed  |
+    
+- Check for Duplicate
+- ```sql
+   SELECT first_name,last_name,count(*) from emp GROUP BY first_name,last_name HAVING COUNT(*) > 1;
+  ```
+
+- Delete Duplicate by deleting
+- ```sql
+      DELETE FROM emp e1  
+      INNER JOIN  emp e2
+      ON e1.first_name=e2.first_name AND e1.last_name=e2.last_name
+      WHERE e1.Id < e2.Id;
+      
+  ```
+
+- Create another table which has no duplicate values
+- ```sql
+     CREATE TABLE new_emp AS 
+     SELECT Id,First_Name,Last_name
+     FROM emp
+     GROUP BY First_Name,Last_Name;
+  ```
+  
+ - Another way using Row_Number() function
+ - ```sql
+      WITH newEmp AS
+      (
+        SELECT *, ROW_NUMBER() OVER(PARTITION BY Id ORDER BY Id) as row_number FROM emp;
+      )
+      DELETE FROM emp WHERE row_number > 1;
+   ```
+
+
+
+
+
+
+
+
 ### **Join in SQL**
 
 ### **Constraints in SQL**
