@@ -111,6 +111,33 @@ Understanding of SQL
 
 
 ### **Join in SQL**
+***
+- ***A JOIN clause is used to combine rows from two or more tables, based on a related column between them.***
+- ***JOIN apply when there is something must be common atleast 1 attribute***
+- ***JOIN = CROSS_Product + Condition (select)***
+
+#### Different Types of SQL JOINs
+* **INNER JOIN**
+  -  Returns records that have matching values in both tables
+  -  ```sql
+     SELECT column_name
+     FROM table1
+     INNER JOIN table2
+     ON table1.column_name = table2.column_name;
+     ```
+  
+* **LEFT OUTER JOIN**
+  - Returns all records from the left table, and the matched records from the right table
+  
+* **RIGHT OUTER JOIN**
+  - Returns all records from the right table, and the matched records from the left table
+
+* **FULL OUTER JOIN**
+  - Returns all records when there is a match in either left or right table
+
+
+
+
 
 ### **Constraints in SQL**
 Not NULL
