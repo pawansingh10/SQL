@@ -5,13 +5,13 @@ Understanding of SQL
 ## **SQL Interview Questions**
 ***
 
-##### **SQL Query to find the Nth highest Salary**
+### **SQL Query to find the Nth highest Salary**
 
-##### **SQL Query to delete duplicate rows from a Table**
+### **SQL Query to delete duplicate rows from a Table**
 
-##### **Join in SQL**
+### **Join in SQL**
 
-##### **Constraints in SQL**
+### **Constraints in SQL**
 Not NULL
 Unique
 Check
@@ -19,14 +19,14 @@ Default
 Primary-Key
 Foreign-Key
 
-##### **Aggregate Functions**
+### **Aggregate Functions**
 count()
 sum()
 avg()
 max()
 min()
 
-##### **Keys in DBMS**
+### **Keys in DBMS**
 * **Primary-Key**
 * **Foreign-Key**
 * **Composite-Key**
@@ -35,10 +35,10 @@ min()
 * **Secondary-Key**
 
 
-##### **What is Normalization? Why is it used?**
+### **What is Normalization? Why is it used?**
 
 
-##### **Differents types of SQL Commands**
+### **Differents types of SQL Commands**
 
 * **DDL - Data Definition Language**
   - **Create**
@@ -62,23 +62,23 @@ min()
   - **SavePoint**
  
  
-##### **Difference between delete, truncate and drop**
+### **Difference between delete, truncate and drop**
 
 
-##### **Different between Char and VarChar**
+### **Different between Char and VarChar**
 
-##### **Difference between Union and Join**
+### **Difference between Union and Join**
 
-##### **Difference between In and Exists**
+### **Difference between In and Exists**
 
-##### **How to create empty table with the same structure as another table?**
+### **How to create empty table with the same structure as another table?**
 - SELECT * INTO students_copy FROM students WHERE 1==2;
 
-##### **What is pattern matching in SQL?**
+### **What is pattern matching in SQL?**
 - % Wildcard + LIKE operator
 - SELECT * FROM students WHERE name LIKE '-K%'; 
 
-##### **What is Union, Minus and Intersect**
+### **What is Union, Minus and Intersect**
 - SELECT name FROM students    UNION   SELECT name FROM contacts;
 
-##### **Difference between Union and Union All**
+### **Difference between Union and Union All**
