@@ -48,7 +48,8 @@ Understanding of SQL
 - Here e2.salary is compare by all e1.salary
 - For duplicate value we use DISTINCT otherwise without distinct it works fine!
 - For Example we have to find 4th Highest salary then put N=4
-- ```sql SELECT Id,Salary from EMP e1 WHERE 4-1=(SELECT COUNT(DISTINCT Salary) FROM e2 WHERE e2.Salary > e1.Salary)
+- ```sql 
+     SELECT Id,Salary from EMP e1 WHERE 4-1=(SELECT COUNT(DISTINCT Salary) FROM e2 WHERE e2.Salary > e1.Salary)
   ```
 - compare 3=count given by sub-query
   
