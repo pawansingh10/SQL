@@ -21,6 +21,39 @@ Understanding of SQL
 - ```sql
      SELECT MAX(Salary) FROM EMP;  // 50000
    ```
+ 
+- Find Second Highest Salary from this table EMP
+- ```sql
+    SELECT MAX(Salary) FROM EMP WHERE Salary NOT IN (SELECT MAX(SALARY) FROM EMP);   // 40000
+  ```
+
+- Find the nth Highest salary from the table EMP
+- ```sql
+     SELECT Id,Salary from EMP e1 WHERE N-1=(SELECT COUNT(DISTINCT Salary) FROM e2 WHERE e2.Salary > e1.Salary)
+  ``` 
+
+> ***Co-related nested Query, recognizes by where the outer query's value used in inner***
+
+-    e1                    e2
+
+- |Id|Salary|           |Id|Salary|
+  |----|------|        |----|------|
+  |1  | 10000|         |1  | 10000|
+  |2  | 20000|         |2  | 20000|
+  |3  | 20000|         |3  | 20000|
+  |4  | 30000|         |4  | 30000|
+  |5  | 40000|         |5  | 40000|
+  |6  | 50000|         |6  | 50000|
+ 
+  
+   
+  
+  
+
+
+
+
+
 
 ### **SQL Query to delete duplicate rows from a Table**
 
