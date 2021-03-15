@@ -166,6 +166,159 @@ Foreign-Key
 - **min()**
   - Minimum value in the salary column except NULL 
 
+### **SELECT Statement**
+___
+- The SELECT statement is used to select data from a database.
+
+- Syntax 
+```sql
+     SELECT column1, column2, ...
+     FROM table_name;
+```
+
+- SQL statement selects the "CustomerName" and "City" columns from the "Customers" table:
+```sql
+   SELECT CustomerName, City FROM Customers;
+```
+
+- SQL statement selects all the columns from the "Customers" table:
+```sql
+   SELECT * FROM Customers;
+```
+
+### **SELECT DISTINCT Statement**
+___
+- The SELECT DISTINCT statement is used to return only distinct (different) values.
+
+- Syntax
+```sql
+     SELECT DISTINCT column1, column2, ...
+     FROM table_name;
+```
+
+- SQL statement selects only the DISTINCT values from the "Country" column in the "Customers" table:
+
+```sql
+   SELECT DISTINCT Country FROM Customers;
+```
+
+- SQL statement lists the number of different (distinct) customer countries:
+```sql
+   SELECT COUNT(DISTINCT Country) FROM Customers;
+```
+
+### **WHERE Clause**
+***
+
+- The WHERE clause is used to filter records.
+
+- Syntax
+```sql
+   SELECT column1, column2, ...
+      FROM table_name 
+   WHERE condition;
+```
+> ***Note : The WHERE clause is not only used in SELECT statements, it is also used in UPDATE, DELETE, etc.!***
+
+- SQL statement selects all the customers from the country "Mexico", in the "Customers" table
+```sql
+   SELECT * FROM Customers
+   WHERE Country='Mexico';
+```
+
+> ***Operators in The WHERE Clause***
+
+|Operator | Discription|
+|---------|------------|
+| = | Equal|
+| > | Greater than |
+| < | Less than |
+| >= | Greater the Equal to|
+| <= | Less than Equal to|
+| != or <> | Not Equal to |
+| BETWEEN | Between Certain Range |
+| LIKE    | Search for a Pattern |
+| IN      | To specify multiple possible value from a column |
+
+
+- ***The SQL AND, OR and NOT Operators***
+  - The WHERE clause can be combined with AND, OR, and NOT operators.
+  
+  - AND Syntax with WHERE
+  ```sql
+  SELECT column1, column2, ...
+    FROM table_name
+  WHERE condition1 AND condition2 AND condition3 ...;
+  ```
+  
+  - OR Syntax with WHERE
+  ```sql
+     SELECT column1, column2, ...
+        FROM table_name
+     WHERE condition1 OR condition2 OR condition3 ...;
+  ```
+  
+  - NOT Syntax with WHERE
+  ```sql
+     SELECT column1, column2, ...
+        FROM table_name
+     WHERE NOT condition;
+  ```
+
+- SQL statement selects all fields from "Customers" where country is "Germany" AND city is "Berlin"
+-
+
+### **GROUP BY**
+***
+- ```sql
+     SELECT column_name(s)
+        FROM table_name
+     WHERE condition
+     GROUP BY column_name(s)
+     ORDER BY column_name(s);
+  ```
+  
+- The following SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:
+- ```sql
+     SELECT COUNT(CustomerID), Country
+        FROM Customers
+     GROUP BY Country
+     HAVING COUNT(CustomerID) > 5;
+  ``` 
+  
+- 
+
+### **Having**
+- The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+
+- ```sql
+     SELECT column_name(s)
+       FROM table_name
+     WHERE condition
+     GROUP BY column_name(s)
+     HAVING condition
+     ORDER BY column_name(s);     
+  ```
+  
+- SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:
+
+- ```sql
+     SELECT COUNT(CustomerID), Country
+       FROM Customers
+     GROUP BY Country
+     HAVING COUNT(CustomerID) > 5;     
+  ```
+ 
+- SQL statement lists the number of customers in each country, sorted high to low (Only include countries with more than 5 customers)
+
+- ```sql
+     SELECT COUNT(CustomerID), Country
+         FROM Customers
+     GROUP BY Country
+     HAVING COUNT(CustomerID) > 5
+     ORDER BY COUNT(CustomerID) DESC;
+  ```
+
 
 ### **Keys in DBMS**
 * **Primary-Key**
