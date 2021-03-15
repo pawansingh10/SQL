@@ -148,11 +148,24 @@ Primary-Key
 Foreign-Key
 
 ### **Aggregate Functions**
-count()
-sum()
-avg()
-max()
-min()
+- Aggregate function is a function where the values of multiple rows are grouped together
+
+- **count()**
+  - Returns total count of records 
+  - Return number of Non Null values
+
+- **sum()**
+  - Sum all Non Null values of Column salary
+
+- **avg()**
+  - Avg(salary) = Sum(salary) / count(salary) 
+
+- **max()**
+  - Maximum value in the salary 
+
+- **min()**
+  - Minimum value in the salary column except NULL 
+
 
 ### **Keys in DBMS**
 * **Primary-Key**
