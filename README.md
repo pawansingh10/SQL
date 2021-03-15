@@ -171,10 +171,10 @@ ___
 - The SELECT statement is used to select data from a database.
 
 - Syntax 
-```sql
+ ```sql
      SELECT column1, column2, ...
      FROM table_name;
-```
+  ```
 
 - SQL statement selects the "CustomerName" and "City" columns from the "Customers" table:
 ```sql
@@ -185,6 +185,8 @@ ___
 ```sql
    SELECT * FROM Customers;
 ```
+
+
 
 ### **SELECT DISTINCT Statement**
 ___
@@ -266,7 +268,220 @@ ___
   ```
 
 - SQL statement selects all fields from "Customers" where country is "Germany" AND city is "Berlin"
--
+```sql
+   SELECT * FROM Customers
+   WHERE Country='Germany' AND City='Berlin';
+```
+
+- SQL statement selects all fields from "Customers" where city is "Berlin" OR "München"
+```sql
+     SELECT * FROM Customers
+     WHERE City='Berlin' OR City='München';
+```
+
+- SQL statement selects all fields from "Customers" where country is NOT "Germany"
+```sql
+     SELECT * FROM Customers
+     WHERE NOT Country='Germany';
+```
+
+- SQL statement selects all fields from "Customers" where country is "Germany" AND city must be "Berlin" OR "München"
+```sql
+   SELECT * FROM Customers
+   WHERE Country='Germany' AND (City='Berlin' OR City='München');
+```
+- SQL statement selects all fields from "Customers" where country is NOT "Germany" and NOT "USA":
+```sql
+   SELECT * FROM Customers
+   WHERE NOT Country='Germany' AND NOT Country='USA';
+```
+
+
+
+### **ORDER BY**
+***
+- The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+> ***The ORDER BY keyword sorts the records in ascending order by default.***
+
+> ***To sort the records in descending order, use the **DESC*****
+
+- Syntax
+```sql
+   SELECT column1, column2, ...
+       FROM table_name
+   ORDER BY column1, column2, ... ASC|DESC;
+```
+
+- SQL statement selects all customers from the "Customers" table, sorted by the "Country" column:
+```sql
+    SELECT * FROM Customers
+    ORDER BY Country;
+```
+
+- SQL statement selects all customers from the "Customers" table, sorted DESCENDING by the "Country" column
+```sql
+     SELECT * FROM Customers
+     ORDER BY Country DESC;
+```
+
+- SQL statement selects all customers from the "Customers" table, sorted ascending by the "Country" and descending by the "CustomerName" column
+```sql
+     SELECT * FROM Customers
+     ORDER BY Country ASC, CustomerName DESC;
+```
+
+
+### **INSERT INTO Statement**
+***
+- The INSERT INTO statement is used to insert new records in a table.
+
+```sql
+    INSERT INTO table_name (column1, column2, column3, ...)
+    VALUES (value1, value2, value3, ...);
+```
+
+```sql
+    INSERT INTO table_name
+    VALUES (value1, value2, value3, ...);
+```
+
+> ***NULL : A field with a NULL value is a field with no value***
+
+-  SQL lists all customers with a NULL value in the "Address"
+```sql
+    SELECT CustomerName, ContactName, Address
+       FROM Customers
+    WHERE Address IS NULL;
+```
+
+
+### **UPDATE Statement**
+***
+- Syntax
+```sql
+    UPDATE table_name
+        SET column1 = value1, column2 = value2, ...
+    WHERE condition;
+```
+
+- SQL statement updates the first customer (CustomerID = 1) with a new contact person and a new city.
+```sql
+    UPDATE Customers
+       SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+    WHERE CustomerID = 1;
+```
+
+### **DELETE Statement**
+***
+- The DELETE statement is used to delete existing records in a table.
+
+- Syntax
+```sql
+     DELETE FROM table_name WHERE condition;
+```
+
+- SQL statement deletes the customer "John" from the "Customers" table
+```sql
+     DELETE FROM Customers WHERE CustomerName='John';
+```
+
+- SQL statement deletes all rows in the "Customers" table, without deleting the table
+```sql
+    DELETE FROM Customers;
+```
+
+
+### **SELECT TOP Clause**
+***
+- The SELECT TOP clause is used to specify the number of records to return.
+- The SELECT TOP clause is useful on large tables with thousands of records
+- Returning a large number of records can impact performance.
+
+```sql
+    SELECT column_name(s)
+         FROM table_name
+    WHERE condition
+    LIMIT number;
+```
+
+### **MIN()**
+***
+- The MIN() function returns the smallest value of the selected column.
+```sql
+    SELECT MIN(column_name)
+         FROM table_name
+    WHERE condition;
+```
+
+- SQL statement finds the price of the cheapest product
+```sql
+     SELECT MIN(Price) AS SmallestPrice
+     FROM Products;
+```
+
+### **MAX()**
+***
+- The MAX() function returns the largest value of the selected column.
+```sql
+     SELECT MAX(column_name)
+         FROM table_name
+     WHERE condition;
+```
+
+- SQL statement finds the price of the most expensive product:
+```sql
+     SELECT MAX(Price) AS LargestPrice
+     FROM Products;
+```
+
+### **COUNT()**
+***
+- The COUNT() function returns the number of rows that matches a specified criterion.
+```sql
+   SELECT COUNT(column_name)
+      FROM table_name
+   WHERE condition;
+```
+- SQL statement finds the number of products
+```sql
+     SELECT COUNT(ProductID)
+     FROM Products;
+```
+
+### **AVG()**
+***
+- The AVG() function returns the average value of a numeric column. 
+```sql
+    SELECT AVG(column_name)
+       FROM table_name
+    WHERE condition;
+```
+
+- SQL statement finds the average price of all products
+```sql
+     SELECT AVG(Price)
+     FROM Products;
+```
+
+### **SUM()**
+***
+- The SUM() function returns the total sum of a numeric column
+```sql
+     SELECT SUM(column_name)
+        FROM table_name
+     WHERE condition;
+```
+- SQL statement finds the sum of the "Quantity" fields in the "OrderDetails" table
+```sql
+     SELECT SUM(Quantity)
+     FROM OrderDetails;
+```
+
+### **LIKE Operator**
+***
+
+
 
 ### **GROUP BY**
 ***
